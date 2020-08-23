@@ -1,0 +1,14 @@
+POST Request : http://localhost:8090/health/doctor/create
+{
+	"d_name":"SUDHIR",
+	"patient":[
+	{
+	"p_name":"hari",
+	"p_emailid":"hari@gmail.com"
+	},
+	{
+	"p_name":"rabi",
+	"p_emailid":"rabi@gmail.com"
+	}
+	]
+}
