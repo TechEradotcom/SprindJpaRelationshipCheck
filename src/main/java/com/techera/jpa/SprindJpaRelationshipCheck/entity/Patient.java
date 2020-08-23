@@ -19,9 +19,9 @@ public class Patient {
 	private String p_name;
 	@NotNull
 	private String p_emailid;
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="d_id")
-	private Doctor doctor;
+	private Doctor doctor;*/
 	public Long getP_id() {
 		return p_id;
 	}
@@ -40,12 +40,12 @@ public class Patient {
 	public void setP_emailid(String p_emailid) {
 		this.p_emailid = p_emailid;
 	}
-	public Doctor getDoctor() {
+	/*public Doctor getDoctor() {
 		return doctor;
 	}
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
-	}
+	}*/
 	
 	
 }
