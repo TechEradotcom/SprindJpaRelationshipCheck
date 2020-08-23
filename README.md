@@ -1,0 +1,2 @@
+# SprindJpaRelationshipCheck
+one-many relationship
