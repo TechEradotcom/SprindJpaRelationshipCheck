@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -15,16 +16,16 @@ import javax.validation.constraints.NotNull;
 @Table(name = "doctor")
 public class Doctor {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long d_id;
 	
 	@NotNull
 	private String d_name;	
 	
-	@OneToMany(targetEntity = Patient.class, cascade={CascadeType.ALL})
+	//mappedBy="doctorRef",
+	@OneToMany(targetEntity = Patient.class, cascade=CascadeType.ALL,orphanRemoval=true)
+	@JoinColumn(name="dctrf_id", referencedColumnName="d_id")
 	private List<Patient> patient;
-
-	
 
 	public Long getD_id() {
 		return d_id;

@@ -1,6 +1,8 @@
 package com.techera.jpa.SprindJpaRelationshipCheck.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,15 +15,15 @@ import javax.validation.constraints.NotNull;
 @Table(name = "patient")
 public class Patient {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long p_id;
 	@NotNull
 	private String p_name;
 	@NotNull
 	private String p_emailid;
-	/*@ManyToOne
-	@JoinColumn(name="d_id")
-	private Doctor doctor;*/
+	/*@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="dctrref_id")
+	private Doctor doctorRef;*/
 	public Long getP_id() {
 		return p_id;
 	}
@@ -40,12 +42,13 @@ public class Patient {
 	public void setP_emailid(String p_emailid) {
 		this.p_emailid = p_emailid;
 	}
-	/*public Doctor getDoctor() {
-		return doctor;
+	/*public Doctor getDoctorRef() {
+		return doctorRef;
 	}
-	public void setDoctor(Doctor doctor) {
-		this.doctor = doctor;
+	public void setDoctorRef(Doctor doctorRef) {
+		this.doctorRef = doctorRef;
 	}*/
+	
 	
 	
 }
